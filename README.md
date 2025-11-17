@@ -1,0 +1,2 @@
+# bitcoinayt-smartphone-
+Bitcoinayt Smartphone
