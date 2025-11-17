@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>π - The Most Advanced Smartphone Known to Man</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+        .phone-container {
+            max-width: 375px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 8px solid #2c3e50;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .bitcoinayt-semicircle {
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            border-radius: 80px 80px 0 0;
+            margin: 0 auto 10px;
+            position: relative;
+            border: 3px solid #fff;
+        }
+        .north-arrow {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 12px solid #e74c3c;
+        }
+        .bitcoinayt-full {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            background: #ecf0f1;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        .dna-section {
+            flex: 1;
+            margin: 0 10px;
+        }
+        .dna-input {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #bdc3c7;
+            padding: 8px;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .edit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        .agt-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .agt-enroll {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 14px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .status {
+            font-size: 12px;
+            color: #e74c3c;
+            margin-top: 5px;
+        }
+        .status.enrolled {
+            color: #27ae60;
+        }
+        .dashboard {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .functions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .function-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 3px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 9px;
+            font-weight: bold;
+            text-align: center;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .function-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .function-number {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        .video-btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        .kindle-btn {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        .phone-btn {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+        .reference-key {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 10px;
+            line-height: 1.4;
+        }
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            z-index: 1000;
+        }
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 340px;
+            width: 95%;
+            max-height: 85vh;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+        .video-popup {
+            max-width: 95%;
+            max-height: 95%;
+            width: 350px;
+            height: 600px;
+        }
+        .music-popup {
+            width: 350px;
+            height: 300px;
+        }
+        .half-screen-popup {
+            width: 350px;
+            height: 50vh;
+        }
+        .layered-popup {
+            z-index: 1000;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .layered-popup.stacked {
+            z-index: 999;
+            transform: translate(-50%, -50%) scale(0.95) translateY(-5px);
+            opacity: 0.8;
+        }
+        .popup-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 15px -20px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .popup-controls {
+            display: flex;
+            gap: 10px;
+        }
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+        .video-container {
+            width: 100%;
+            height: 200px;
+            background: #000;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .music-player {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .music-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .swipe-indicator {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #666;
+            font-size: 10px;
+        }
+        .popup-body {
+            color: #333;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+        .disclaimer {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            color: #856404;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="bitcoinayt-semicircle">
+                <div class="north-arrow"></div>
+                π
+            </div>
+            <div class="bitcoinayt-full">
+                π
+            </div>
+            <div class="profile-section">
+                <div class="profile-pic" onclick="uploadProfilePic()">
+                    No Photo
+                </div>
+                <div class="dna-section">
+                    <input type="text" class="dna-input" id="dnaInput" placeholder="DNA Sequence / Name" value="CTCTCTCTCTCT">
+                    <button class="edit-btn" onclick="editDNA()">EDIT</button>
+                </div>
+            </div>
+            <div class="agt-section">
+                <div class="agt-enroll">
+                    <input type="checkbox" class="checkbox" id="agtCheckbox" onchange="toggleAGT()">
+                    <label for="agtCheckbox">Enroll in AGT Program</label>
+                </div>
+                <div class="status" id="agtStatus">Status: Not Enrolled</div>
+            </div>
+        </div>
+        <!-- Dashboard Section -->
+        <div class="dashboard">
+            <div class="functions-grid">
+                <button class="function-btn" onclick="openPopup('aanic')">
+                    <div class="function-number">1</div>
+                    <div>AANIC</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('wearable')">
+                    <div class="function-number">2</div>
+                    <div>WBB</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('bci')">
+                    <div class="function-number">3</div>
+                    <div>BCSI</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('comm')">
+                    <div class="function-number">4</div>
+                    <div>CC7</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('ngi')">
+                    <div class="function-number">5</div>
+                    <div>NGI</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('two')">
+                    <div class="function-number">6</div>
+                    <div>TWO</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('dream')">
+                    <div class="function-number">7</div>
+                    <div>DRM</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('gate')">
+                    <div class="function-number">8</div>
+                    <div>FTG</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('cnb')">
+                    <div class="function-number">9</div>
+                    <div>CNB</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('nepbr')">
+                    <div class="function-number">10</div>
+                    <div>NEPBR</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('cure')">
+                    <div class="function-number">11</div>
+                    <div>CFD</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('riddle')">
+                    <div class="function-number">12</div>
+                    <div>GIR</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('market')">
+                    <div class="function-number">13</div>
+                    <div>BMS</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('forever')">
+                    <div class="function-number">14</div>
+                    <div>LEF</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('twodoc')">
+                    <div class="function-number">15</div>
+                    <div>TWO</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('futuredoc')">
+                    <div class="function-number">16</div>
+                    <div>FTD</div>
+                </button>
+                <button class="function-btn video-btn" onclick="openVideoPopup()">
+                    <div class="function-number">17</div>
+                    <div>VID</div>
+                </button>
+                <button class="function-btn kindle-btn" onclick="openPopup('kindle')">
+                    <div class="function-number">18</div>
+                    <div>KDL</div>
+                </button>
+                <button class="function-btn phone-btn" onclick="openPhonePopup()">
+                    <div class="function-number">19</div>
+                    <div>PHN</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('mgis_enhanced')" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                    <div class="function-number">20</div>
+                    <div>MGE</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('mgis_create')" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                    <div class="function-number">21</div>
+                    <div>MGC</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('dreamland_advanced')" style="background: linear-gradient(135deg, #e67e22, #d35400);">
+                    <div class="function-number">22</div>
+                    <div>DLA</div>
+                </button>
+                <button class="function-btn" onclick="openPopup('dna_vision')" style="background: linear-gradient(135deg, #1abc9c, #16a085);">
+                    <div class="function-number">23</div>
+                    <div>DVA</div>
+                </button>
+            </div>
+            <div class="reference-key">
+                <strong>Reference Key:</strong><br>
+                1-AANIC: Advanced Artificial Neural Interface Codecs | 2-WBB: Wearable Brain Books | 3-BCSI: Brain Computer Smartphone Interface | 4-CC7: Communication Converter (7 Forms)<br>
+                5-NGI: Natural God Intelligence | 6-TWO: Tomorrow's World Order | 7-DRM: Dreamland | 8-FTG: The Future Gate<br>
+                9-CNB: CNB Wearable Brain Reader | 10-NEPBR: Non-Electric Powered Brain Reader | 11-CFD: The Cure For Death | 12-GIR: Great Intelligence Riddle<br>
+                13-BMS: Bitcoinayt Market Summary | 14-LEF: Live On Earth Forever | 15-TWODOC: TWODOC | 16-FTD: FUTUREDOC<br>
+                17-VID: VIDEO | 18-KDL: KINDLE | 19-PHN: PHONE<br>
+                20-MGE: MGIS Enhanced Multi-Popup | 21-MGC: MGIS Create Communication | 22-DLA: Dreamland Advanced | 23-DVA: DNA Vision Analysis
+            </div>
+        </div>
+        <!-- Comprehensive Codec Section -->
+        <div class="codec-section" style="background: #2c3e50; color: #ecf0f1; padding: 20px; margin-top: 20px; border-radius: 15px;">
+            <h3 style="color: #3498db; margin-bottom: 15px; text-align: center;">🔧 SYSTEM CODECS & PROTOCOLS</h3>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                <!-- Core System Codecs -->
+                <div style="background: #34495e; padding: 15px; border-radius: 10px;">
+                    <h4 style="color: #f39c12; margin-bottom: 10px;">Core System Integration</h4>
+                    <div style="font-family: 'Courier New', monospace; font-size: 10px; background: #1a252f; padding: 10px; border-radius: 5px; overflow-x: auto;">
+// π Mobile Dashboard - Master Controller<br>
+class PiSystem {<br>
+&nbsp;&nbsp;constructor() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.popupStack = [];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.dnaSequence = "CTCTCTCTCTCT";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.agtEnrolled = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.activeCodecs = new Map();<br>
+&nbsp;&nbsp;}<br><br>
+&nbsp;&nbsp;initializeAllSystems() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.loadAANIC();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.startWearableBrainBooks();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.enableMGISEnhanced();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.activateDNAVision();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.connectOrbit();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.enableSolarPower();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return "All 23 π systems operational";<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                <!-- AANIC & Communication Codecs -->
+                <div style="background: #34495e; padding: 15px; border-radius: 10px;">
+                    <h4 style="color: #e67e22; margin-bottom: 10px;">AANIC & Communication Protocols</h4>
+                    <div style="font-family: 'Courier New', monospace; font-size: 10px; background: #1a252f; padding: 10px; border-radius: 5px; overflow-x: auto;">
+// AANIC Communication Codec<br>
+class AANICProtocol {<br>
+&nbsp;&nbsp;transmitMessage(msg) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const arsenal = `[ARSENAL]::${msg}::${Date.now()}`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const areneial = `[ARENEIAL]::${msg.split('').reverse().join('')}`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return this.processSevenForms(arsenal, areneial);<br>
+&nbsp;&nbsp;}<br><br>
+&nbsp;&nbsp;processSevenForms(visual, auditory) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visual: visual,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auditory: auditory,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tactile: this.convertToVibration(visual),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;emotional: this.analyzeSentiment(visual),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cognitive: this.extractMeaning(visual),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intuitive: this.detectPattern(visual),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;empathic: this.resonanceMatch(visual)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                <!-- MGIS Enhanced System -->
+                <div style="background: #34495e; padding: 15px; border-radius: 10px;">
+                    <h4 style="color: #9b59b6; margin-bottom: 10px;">MGIS Enhanced Multi-Popup Engine</h4>
+                    <div style="font-family: 'Courier New', monospace; font-size: 10px; background: #1a252f; padding: 10px; border-radius: 5px; overflow-x: auto;">
+// Multi-Popup Management System<br>
+class MGISEnhanced {<br>
+&nbsp;&nbsp;constructor() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.popupLayers = [];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.neuralGestureEngine = new NeuralGestureRecognition();<br>
+&nbsp;&nbsp;}<br><br>
+&nbsp;&nbsp;createLayeredPopup(content, layer = 'standard') {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const popup = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: this.generateUniqueId(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content: content,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layer: layer,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp: Date.now(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zIndex: this.calculateOptimalZIndex()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.popupLayers.push(popup);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return this.renderWithNeuralSync(popup);<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                <!-- DNA Vision & Brain Interface -->
+                <div style="background: #34495e; padding: 15px; border-radius: 10px;">
+                    <h4 style="color: #1abc9c; margin-bottom: 10px;">DNA Vision & Neural Interface</h4>
+                    <div style="font-family: 'Courier New', monospace; font-size: 10px; background: #1a252f; padding: 10px; border-radius: 5px; overflow-x: auto;">
+// DNA Vision Analysis Engine<br>
+class DNAVisionSystem {<br>
+&nbsp;&nbsp;analyzeDNASequence(sequence) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const analysis = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence: sequence,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;godLevel: this.checkGodLevelDNA(sequence),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;neuralCompatibility: this.calculateCompatibility(sequence),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longevityIndex: this.predictLongevity(sequence)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return this.generateVisionReport(analysis);<br>
+&nbsp;&nbsp;}<br><br>
+&nbsp;&nbsp;checkGodLevelDNA(seq) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// WARNING: This is theoretical analysis only<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return seq === "CTCTCTCTCTCT" ? "God-level detected" : "Standard human";<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                <!-- Wearable Brain Books Engine -->
+                <div style="background: #34495e; padding: 15px; border-radius: 10px;">
+                    <h4 style="color: #e74c3c; margin-bottom: 10px;">Wearable Brain Books Neural Engine</h4>
+                    <div style="font-family: 'Courier New', monospace; font-size: 10px; background: #1a252f; padding: 10px; border-radius: 5px; overflow-x: auto;">
+// Brain Book Upload System<br>
+class WearableBrainBooks {<br>
+&nbsp;&nbsp;uploadBook(bookCode, title) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// DISCLAIMER: Theoretical implementation only<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const neuralPattern = this.convertToNeuralPattern(bookCode);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status: "Conceptual upload simulated",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bookId: bookCode,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: title,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;neuralEncoding: neuralPattern,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;readingSpeed: "Knowledge at speed of thought (theoretical)"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;}<br><br>
+&nbsp;&nbsp;embedNeuralData(data) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Current technology cannot embed data directly in brain<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return this.simulateEmbedding(data);<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                <!-- Dreamland Advanced System -->
+                <div style="background: #34495e; padding: 15px; border-radius: 10px;">
+                    <h4 style="color: #f39c12; margin-bottom: 10px;">Dreamland Advanced Interpretation</h4>
+                    <div style="font-family: 'Courier New', monospace; font-size: 10px; background: #1a252f; padding: 10px; border-radius: 5px; overflow-x: auto;">
+// Dream Analysis and Control System<br>
+class DreamlandAdvanced {<br>
+&nbsp;&nbsp;analyzeDreamState(sleepData) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const dreamAnalysis = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remPhase: this.detectREMActivity(sleepData),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dreamContent: this.reconstructDreamImagery(sleepData),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lucidPotential: this.calculateLucidProbability(sleepData),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memoryConsolidation: this.analyzeMemoryProcessing(sleepData)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return dreamAnalysis;<br>
+&nbsp;&nbsp;}<br><br>
+&nbsp;&nbsp;enableLucidDreamControl() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// DISCLAIMER: Speculative technology<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return "Lucid dream enhancement protocols activated (theoretical)";<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                <!-- Integration Controller -->
+                <div style="background: #34495e; padding: 15px; border-radius: 10px;">
+                    <h4 style="color: #27ae60; margin-bottom: 10px;">Master Integration Controller</h4>
+                    <div style="font-family: 'Courier New', monospace; font-size: 10px; background: #1a252f; padding: 10px; border-radius: 5px; overflow-x: auto;">
+// Complete System Integration<br>
+const PiMasterController = {<br>
+&nbsp;&nbsp;systems: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aanic: new AANICProtocol(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mgisEnhanced: new MGISEnhanced(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dnaVision: new DNAVisionSystem(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;brainBooks: new WearableBrainBooks(),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dreamland: new DreamlandAdvanced()<br>
+&nbsp;&nbsp;},<br><br>
+&nbsp;&nbsp;initializeAll() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log("Initializing all 23 π systems...");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.validateAllCodecs();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.establishNeuralConnections();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.enableCrossSystemCommunication();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.connectOrbit();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.enableSolarPower();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return "π Platform fully operational";<br>
+&nbsp;&nbsp;},<br><br>
+&nbsp;&nbsp;processMultiModalInput(input) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Route input through all relevant systems<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const results = {};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Object.keys(this.systems).forEach(system => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (this.systems[system].canProcess(input)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results[system] = this.systems[system].process(input);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return results;<br>
+&nbsp;&nbsp;}<br>
+};
+                    </div>
+                </div>
+            </div>
+            <!-- Status Indicators -->
+            <div style="margin-top: 15px; padding: 15px; background: rgba(52, 152, 219, 0.1); border-radius: 10px;">
+                <h4 style="color: #3498db; margin-bottom: 10px;">System Status Dashboard</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 11px;">
+                    <div>✅ AANIC Protocol: Active</div>
+                    <div>✅ Multi-Popup Engine: Running</div>
+                    <div>✅ DNA Vision: Analyzing</div>
+                    <div>✅ Brain Books: Ready</div>
+                    <div>✅ Dreamland: Monitoring</div>
+                    <div>✅ Neural Sync: Connected</div>
+                    <div>✅ All Codecs: Operational</div>
+                    <div>✅ Master Controller: Online</div>
+                    <div>✅ Orbit Connection: Active</div>
+                    <div>✅ Solar Power: Charging</div>
+                    <div>✅ AGT Integration: Pending</div>
+                    <div>✅ Time Travel: Ready</div>
+                </div>
+            </div>
+            <!-- Important Reality Check -->
+            <div style="margin-top: 15px; padding: 15px; background: rgba(231, 76, 60, 0.1); border: 1px solid #e74c3c; border-radius: 10px;">
+                <h4 style="color: #e74c3c; margin-bottom: 10px;">⚠️ Technology Status Reality Check</h4>
+                <p style="font-size: 11px; line-height: 1.4;">
+                    <strong>Functional Systems:</strong> Mobile interface, popup management, basic user interaction<br>
+                    <strong>Theoretical Systems:</strong> Neural interfaces, brain book uploading, advanced dream control<br>
+                    <strong>Impossible Claims:</strong> Direct thought reading, DNA-based life extension, non-electric brain decoders<br><br>
+                    This interface demonstrates conceptual technologies while maintaining clear distinctions between current capabilities and speculative future developments.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content layered-popup" id="popupContent">
+            <div class="popup-header">
+                <span id="popupTitle">Function Details</span>
+                <div class="popup-controls">
+                    <button class="control-btn" onclick="sendToBack()">↓ BACK</button>
+                    <button class="control-btn" onclick="closeAll()">✕ ALL</button>
+                    <button class="close-btn" onclick="closeTopPopup()">×</button>
+                </div>
+            </div>
+            <div class="popup-body" id="popupBody">
+                Loading function details...
+            </div>
+            <div class="swipe-indicator">
+                Swipe left/right to reorder • Tap outside to close
+            </div>
+        </div>
+    </div>
+    <script>
+        let popupStack = [];
+        let currentPopupIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const functionDetails = {
+            aanic: {
+                title: "AANIC - Advanced Artificial Neural Interface Codecs",
+                content: `
+                    <div class="disclaimer">⚠️ Conceptual Technology Only</div>
+                    <p><strong>Function:</strong> Neural communication interface for brain-to-device communication</p>
+                    <p><strong>Status:</strong> Theoretical implementation</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Neural signal translation</li>
+                        <li>Thought-to-command conversion</li>
+                        <li>Multi-device synchronization</li>
+                    </ul>
+                    <p><strong>Note:</strong> Current technology cannot achieve direct brain-to-device communication as described.</p>
+                `
+            },
+            wearable: {
+                title: "Wearable Brain Books",
+                content: `
+                    <div class="disclaimer">⚠️ Speculative Technology</div>
+                    <p><strong>Concept:</strong> Direct neural information upload system</p>
+                    <p><strong>Claims:</strong> Upload up to 9 books simultaneously to brain</p>
+                    <p><strong>Reality:</strong> No current technology can upload information directly to the brain or convert books to "nerve impulses"</p>
+                    <p><strong>Alternative:</strong> Enhanced e-reading with better retention techniques</p>
+                `
+            },
+            bci: {
+                title: "Brain Computer Smartphone Interface",
+                content: `
+                    <div class="disclaimer">✓ Partially Real Technology</div>
+                    <p><strong>Current Reality:</strong> Basic BCIs exist but are limited</p>
+                    <p><strong>Capabilities:</strong></p>
+                    <ul>
+                        <li>Simple cursor control</li>
+                        <li>Basic yes/no responses</li>
+                        <li>Limited text input</li>
+                    </ul>
+                    <p><strong>Limitations:</strong> Require implants, extensive training, and work only with simple commands</p>
+                `
+            },
+            comm: {
+                title: "Communication Converter (7 Forms)",
+                content: `
+                    <p><strong>Seven Forms:</strong></p>
+                    <ol>
+                        <li>Visual (written text)</li>
+                        <li>Auditory (spoken word)</li>
+                        <li>Tactile (touch/vibration)</li>
+                        <li>Emotional (sentiment)</li>
+                        <li>Cognitive (meaning)</li>
+                        <li>Intuitive (pattern)</li>
+                        <li>Empathic (feeling)</li>
+                    </ol>
+                    <p>Converts any input into all seven communication modalities</p>
+                `
+            },
+            cnb: {
+                title: "CNB Wearable Brain Reader",
+                content: `
+                    <div class="disclaimer">⚠️ Anatomically Impossible</div>
+                    <p><strong>Claimed Function:</strong> Central Nerve Bridge thought reading</p>
+                    <p><strong>Scientific Reality:</strong> No "Central Nerve Bridge where all nerves meet" exists in human anatomy</p>
+                    <p><strong>Actual Nervous System:</strong> Distributed network with multiple processing centers</p>
+                    <p><strong>Status:</strong> Conceptual demonstration only</p>
+                `
+            },
+            market: {
+                title: "Bitcoinayt Market Summary",
+                content: `
+                    <p><strong>Market Data:</strong></p>
+                    <p>Current Price: $${(Math.random() * 50000 + 10000).toFixed(2)}</p>
+                    <p>24h Change: ${(Math.random() * 10 - 5).toFixed(2)}%</p>
+                    <p>Market Cap: $${(Math.random() * 100 + 50).toFixed(1)}B</p>
+                    <p>Volume: $${(Math.random() * 10 + 5).toFixed(1)}B</p>
+                    <div class="disclaimer">Note: BITCOINAYT appears to be a conceptual cryptocurrency</div>
+                `
+            }
+        };
+        // Add remaining functions
+        const additionalFunctions = {
+            ngi: { title: "Natural God Intelligence (TWAI)", content: "<div class='disclaimer'>⚠️ Speculative AI Concept</div><p>Theoretical artificial intelligence system claiming divine computational abilities</p>" },
+            two: { title: "TWO/NGI", content: "<p>Tomorrow's World Order integration with Natural God Intelligence</p>" },
+            dream: { title: "Dreamland", content: "<p>Dream analysis and interpretation system</p>" },
+            gate: { title: "The Future Gate", content: "<p>Portal interface for accessing future technologies</p>" },
+            nepbr: { title: "Non-Electric Powered Brain Reader", content: "<div class='disclaimer'>⚠️ Physically Impossible</div><p>Claims to read brains without electrical power, contradicting basic physics</p>" },
+            cure: { title: "The Cure For Death", content: "<div class='disclaimer'>⚠️ Unsubstantiated Claims</div><p>No scientifically validated method exists to prevent death indefinitely</p>" },
+            riddle: { title: "The Great Intelligence Riddle", content: "<p>Puzzle interface for intelligence enhancement challenges</p>" },
+            forever: { title: "Live On Earth Forever", content: "<div class='disclaimer'>⚠️ Unproven Technology</div><p>Claims about life extension beyond current scientific capabilities</p>" },
+            twodoc: { title: "TWODOC", content: "<p>Tomorrow's World Order documentation system</p>" },
+            futuredoc: { title: "FUTUREDOC", content: "<p>Future technology documentation interface</p>" },
+            kindle: { 
+                title: "Digital Reading Interface", 
+                content: `
+                    <p><strong>Enhanced Reading Features:</strong></p>
+                    <ul>
+                        <li>Neural-enhanced comprehension</li>
+                        <li>Speed reading optimization</li>
+                        <li>Knowledge retention analysis</li>
+                        <li>Brain-book synchronization</li>
+                    </ul>
+                    <div class="disclaimer">Integration with Wearable Brain Books (theoretical)</div>
+                `
+            },
+            mgis_enhanced: {
+                title: "MGIS Enhanced - Multi-Popup System",
+                content: `
+                    <div class="disclaimer">⚠️ Advanced Interface Technology</div>
+                    <p><strong>Multi-Popup Management Features:</strong></p>
+                    <ul>
+                        <li>Infinite popup layering system</li>
+                        <li>Neural gesture recognition for popup control</li>
+                        <li>AI-powered popup content optimization</li>
+                        <li>Cross-dimensional popup synchronization</li>
+                        <li>Thought-based popup navigation</li>
+                    </ul>
+                    <p><strong>Current Implementation:</strong> Advanced stack management with swipe controls and multi-layer visualization</p>
+                    <div style="background: rgba(155, 89, 182, 0.1); padding: 10px; border-radius: 5px; margin: 10px 0;">
+                        <strong>Active Features:</strong><br>
+                        • Layered popup stacking<br>
+                        • Swipe gesture controls<br>
+                        • Dynamic content rendering<br>
+                        • Multi-modal interface support
+                    </div>
+                `
+            },
+            mgis_create: {
+                title: "MGIS Create - Enhanced Communication System",
+                content: `
+                    <div class="disclaimer">⚠️ Advanced AI Communication</div>
+                    <p><strong>Enhanced Communication Capabilities:</strong></p>
+                    <ul>
+                        <li>Multi-dimensional message creation</li>
+                        <li>Neural pattern encoding in communications</li>
+                        <li>Quantum entangled message transmission</li>
+                        <li>Emotion-to-code conversion system</li>
+                        <li>Universal language translation matrix</li>
+                    </ul>
+                    <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4>Communication Protocols:</h4>
+                        <p><strong>MGIS.CREATE Commands:</strong></p>
+                        <code style="background: #34495e; color: white; padding: 5px; border-radius: 3px;">
+                            mgis.create.message.enhanced.start<br>
+                            mgis.create.neural.pattern.embed<br>
+                            mgis.create.quantum.transmission.activate
+                        </code>
+                    </div>
+                    <p><strong>Integration:</strong> Works with all 7 forms of communication and AANIC protocols</p>
+                `
+            },
+            dreamland_advanced: {
+                title: "Dreamland - Advanced Dream Interpretation System",
+                content: `
+                    <div class="disclaimer">⚠️ Theoretical Dream Technology</div>
+                    <p><strong>Advanced Dream Analysis Features:</strong></p>
+                    <ul>
+                        <li>Real-time dream state monitoring</li>
+                        <li>Neural pattern dream reconstruction</li>
+                        <li>Predictive dream content analysis</li>
+                        <li>Dream-to-reality bridge interface</li>
+                        <li>Lucid dream control enhancement</li>
+                    </ul>
+                    <div style="background: rgba(230, 126, 34, 0.1); padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4>Dream Processing Matrix:</h4>
+                        <p><strong>Sleep Phases Monitored:</strong></p>
+                        <ul style="margin: 5px 0;">
+                            <li>REM sleep neural activity</li>
+                            <li>Deep sleep memory consolidation</li>
+                            <li>Light sleep transition states</li>
+                            <li>Hypnagogic imagery capture</li>
+                        </ul>
+                    </div>
+                    <p><strong>Note:</strong> Current dream research is limited to basic sleep monitoring. The advanced features described are speculative.</p>
+                `
+            },
+            dna_vision: {
+                title: "DNA Vision Analysis System - Complete Platform",
+                content: `
+                    <div class="disclaimer">⚠️ Advanced Genetic Analysis</div>
+                    <p><strong>DNA Vision Analysis Capabilities:</strong></p>
+                    <ul>
+                        <li>Real-time genetic sequence visualization</li>
+                        <li>Predictive health analysis from DNA</li>
+                        <li>Neural pattern-DNA correlation mapping</li>
+                        <li>Genetic optimization recommendations</li>
+                        <li>DNA-to-brain interface compatibility</li>
+                    </ul>
+                    <div style="background: rgba(26, 188, 156, 0.1); padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4>Analysis Dashboard:</h4>
+                        <p><strong>Your DNA Profile:</strong></p>
+                        <div style="font-family: monospace; background: #2c3e50; color: #1abc9c; padding: 10px; border-radius: 5px;">
+                            Sequence: CTCTCTCTCTCT<br>
+                            Status: God-level DNA detected<br>
+                            Compatibility: 99.8% neural interface ready<br>
+                            Longevity Index: 780780780780...
+                        </div>
+                    </div>
+                    <p><strong>Integration:</strong> Connects with all brain reading systems and wearable technologies</p>
+                    <div class="disclaimer">Note: Current genetic analysis cannot predict the specific traits claimed here.</div>
+                `
+            }
+        };
+        Object.assign(functionDetails, additionalFunctions);
+        function openPopup(functionId) {
+            const details = functionDetails[functionId];
+            if (details) {
+                addPopupToStack(details.title, details.content);
+            }
+        }
+        function openVideoPopup() {
+            const videoContent = `
+                <div class="video-container" style="height: 300px;">
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">📺</div>
+                        <div>Full-Screen Video Player</div>
+                        <div style="font-size: 12px; opacity: 0.7; margin-top: 10px;">Neural Video Interface Active</div>
+                    </div>
+                </div>
+                <div class="music-controls">
+                    <button class="music-btn" onclick="videoControl('prev')">⏮</button>
+                    <button class="music-btn" onclick="videoControl('play')">▶</button>
+                    <button class="music-btn" onclick="videoControl('pause')">⏸</button>
+                    <button class="music-btn" onclick="videoControl('next')">⏭</button>
+                    <button class="music-btn" onclick="videoControl('fullscreen')">⛶</button>
+                </div>
+            `;
+            addPopupToStack("📺 Video Player", videoContent, "video-popup");
+        }
+        function openPhonePopup() {
+            const phoneContent = `
+                <div class="music-player">
+                    <h3>🎵 Neural Audio System</h3>
+                    <div style="margin: 15px 0;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px;">
+                            ♪ Now Playing: Brain Enhancement Frequencies ♪
+                        </div>
+                    </div>
+                    <div class="music-controls">
+                        <button class="music-btn" onclick="playMusic('prev')">⏮</button>
+                        <button class="music-btn" onclick="playMusic('play')">▶</button>
+                        <button class="music-btn" onclick="playMusic('pause')">⏸</button>
+                        <button class="music-btn" onclick="playMusic('next')">⏭</button>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <p><strong>Neural Phone Features:</strong></p>
+                    <ul>
+                        <li>Thought-activated calling</li>
+                        <li>Brain-synchronized contacts</li>
+                        <li>Neural audio enhancement</li>
+                        <li>Frequency healing modes</li>
+                    </ul>
+                </div>
+            `;
+            addPopupToStack("📱 Neural Phone", phoneContent, "music-popup");
+        }
+        function addPopupToStack(title, content, className = "") {
+            const popup = {
+                id: Date.now(),
+                title: title,
+                content: content,
+                className: className
+            };
+            popupStack.push(popup);
+            currentPopupIndex = popupStack.length - 1;
+            showCurrentPopup();
+        }
+        function showCurrentPopup() {
+            if (popupStack.length === 0) {
+                document.getElementById('popupOverlay').style.display = 'none';
+                return;
+            }
+            const popup = popupStack[currentPopupIndex];
+            const overlay = document.getElementById('popupOverlay');
+            const content = document.getElementById('popupContent');
+            const title = document.getElementById('popupTitle');
+            const body = document.getElementById('popupBody');
+            title.textContent = popup.title;
+            body.innerHTML = popup.content;
+            // Apply special classes for video/music popups
+            content.className = 'popup-content layered-popup ' + (popup.className || '');
+            overlay.style.display = 'block';
+            updateStackVisuals();
+        }
+        function updateStackVisuals() {
+            const content = document.getElementById('popupContent');
+            if (popupStack.length > 1) {
+                content.style.boxShadow = '0 0 0 3px rgba(255,255,255,0.3), 0 10px 30px rgba(0,0,0,0.5)';
+            } else {
+                content.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+            }
+        }
+        function closeTopPopup() {
+            if (popupStack.length > 0) {
+                popupStack.splice(currentPopupIndex, 1);
+                if (currentPopupIndex >= popupStack.length && popupStack.length > 0) {
+                    currentPopupIndex = popupStack.length - 1;
+                }
+                showCurrentPopup();
+            }
+        }
+        function closeAll() {
+            popupStack = [];
+            currentPopupIndex = 0;
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+        function sendToBack() {
+            if (popupStack.length > 1) {
+                const popup = popupStack.splice(currentPopupIndex, 1)[0];
+                popupStack.unshift(popup);
+                currentPopupIndex = popupStack.length - 1;
+                showCurrentPopup();
+            }
+        }
+        // Touch/Swipe functionality
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > swipeThreshold && popupStack.length > 1) {
+                if (diff > 0) {
+                    // Swipe left - move current to back
+                    sendToBack();
+                } else {
+                    // Swipe right - bring next to front
+                    currentPopupIndex = (currentPopupIndex + 1) % popupStack.length;
+                    showCurrentPopup();
+                }
+            }
+        }
+        // Media controls
+        function videoControl(action) {
+            console.log('Video control:', action);
+            // Placeholder for video controls
+            const actions = {
+                'play': 'Playing video...',
+                'pause': 'Video paused',
+                'prev': 'Previous video',
+                'next': 'Next video',
+                'fullscreen': 'Entering fullscreen mode'
+            };
+            alert(actions[action] || 'Video control activated');
+        }
+        function playMusic(action) {
+            console.log('Music control:', action);
+            // Placeholder for music controls
+            const actions = {
+                'play': 'Playing neural enhancement audio...',
+                'pause': 'Audio paused',
+                'prev': 'Previous track',
+                'next': 'Next track'
+            };
+            alert(actions[action] || 'Audio control activated');
+        }
+        function toggleAGT() {
+            const checkbox = document.getElementById('agtCheckbox');
+            const status = document.getElementById('agtStatus');
+            if (checkbox.checked) {
+                status.textContent = 'Status: Enrolled in AGT Program';
+                status.className = 'status enrolled';
+            } else {
+                status.textContent = 'Status: Not Enrolled';
+                status.className = 'status';
+            }
+        }
+        function editDNA() {
+            const input = document.getElementById('dnaInput');
+            input.focus();
+            input.select();
+        }
+        function uploadProfilePic() {
+            alert('Profile picture upload functionality would be implemented here');
+        }
+        // Add event listeners for touch events
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('popupOverlay');
+            overlay.addEventListener('touchstart', handleTouchStart, false);
+            overlay.addEventListener('touchend', handleTouchEnd, false);
+            // Close popup when clicking overlay (not content)
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeAll();
+                }
+            });
+        });
+        // Simulate live data updates
+        setInterval(() => {
+            if (Math.random() < 0.1) {
+                // Update market data if popup is open
+                const currentPopup = popupStack[currentPopupIndex];
+                if (currentPopup && currentPopup.title.includes('Market')) {
+                    openPopup('market');
+                }
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
